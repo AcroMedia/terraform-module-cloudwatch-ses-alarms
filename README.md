@@ -1,7 +1,9 @@
 # terraform-module-cloudwatch-ses-alarms
 
+Sets alarms on warning and critical complaint & bounce rates in AWS SES, and sends them to the SNS topic(s) that you've defined.
+
 Example implementation:
-```yaml 
+```terraform
 
 resource "aws_sns_topic" "email" {
   provider = aws
@@ -18,7 +20,7 @@ resource "aws_sns_topic_subscription" "subscriber" {
 module "cloudwatch_ses_alarms" {
   source = "git@github.com:AcroMedia/terraform-module-cloudwatch-ses-alarms.git?ref=main"  # ?ref= can also point at a version tag.
   providers = {
-    aws.src = aws # or your aliased aws provider
+    aws.src = aws  # or your aliased aws provider
   }
   critical_sns_arn = aws_sns_topic.email.arn
   warning_sns_arn = aws_sns_topic.email.arn
