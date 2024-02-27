@@ -13,6 +13,7 @@ resource "aws_cloudwatch_metric_alarm" "ses-bounce-rate-warning" {
   insufficient_data_actions = [var.warning_sns_arn]
   ok_actions                = [var.warning_sns_arn]
   treat_missing_data        = "notBreaching"
+  tags = var.tags
 }
 
 resource "aws_cloudwatch_metric_alarm" "ses-bounce-rate-critical" {
@@ -30,6 +31,7 @@ resource "aws_cloudwatch_metric_alarm" "ses-bounce-rate-critical" {
   ok_actions                = [var.critical_sns_arn]
   insufficient_data_actions = [var.critical_sns_arn]
   treat_missing_data        = "notBreaching"
+  tags = var.tags
 }
 
 resource "aws_cloudwatch_metric_alarm" "ses-complaint-rate-warning" {
@@ -47,6 +49,7 @@ resource "aws_cloudwatch_metric_alarm" "ses-complaint-rate-warning" {
   insufficient_data_actions = [var.warning_sns_arn]
   ok_actions                = [var.warning_sns_arn]
   treat_missing_data        = "notBreaching"
+  tags = var.tags
 }
 
 resource "aws_cloudwatch_metric_alarm" "ses-complaint-rate-critical" {
@@ -64,4 +67,5 @@ resource "aws_cloudwatch_metric_alarm" "ses-complaint-rate-critical" {
   ok_actions                = [var.critical_sns_arn]
   insufficient_data_actions = [var.critical_sns_arn]
   treat_missing_data        = "notBreaching"
+  tags = var.tags
 }
